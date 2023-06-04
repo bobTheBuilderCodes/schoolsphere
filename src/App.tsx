@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Login from "./pages/auth/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
@@ -16,15 +21,15 @@ import Students from "./pages/students/Students";
 import SchoolFees from "./pages/finance/SchoolFees";
 
 function App() {
+  const { pathname } = useLocation();
   return (
     <div className="bg-gray-100 h-screen">
-      <Router>
+      {pathname === "/" ? (
+        <Login />
+      ) : (
         <AppLayout>
           <Routes>
-            <Route index element={<Login />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId" element={<AdminDashboard />} />
+            <Route path="/:userId" element={<AdminDashboard />} />
           </Routes>
           <Routes>
             <Route path=":userId/students" element={<Students />} />
@@ -57,7 +62,7 @@ function App() {
             <Route path=":userId/customize-app" element={<CustomizeApp />} />
           </Routes>
         </AppLayout>
-      </Router>
+      )}
     </div>
   );
 }

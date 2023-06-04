@@ -1,5 +1,5 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { InputRef, Typography } from "antd";
+import { Form, InputRef, Typography } from "antd";
 import { Button, Input, Space, Table } from "antd";
 import type { ColumnType, ColumnsType } from "antd/es/table";
 import type { FilterConfirmProps } from "antd/es/table/interface";
@@ -221,7 +221,22 @@ const Roles = () => {
           isOpen={openModal}
           onClose={closeModalHandler}
         >
-          This is my example modal.
+          <Form className="flex flex-col items-center justify-center">
+            <Form.Item
+              rules={[{ required: true, message: "Please add a role name" }]}
+              className="w-[100%]"
+            >
+              <label htmlFor="role" className="font-medium text-gray-700">
+                Role
+              </label>
+              <Input
+                placeholder="Enter role name"
+                name="role"
+                className="mt-2"
+                size="large"
+              ></Input>
+            </Form.Item>
+          </Form>
         </AppModal>
       </div>
       <Table columns={columns} dataSource={data} />;

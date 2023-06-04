@@ -5,17 +5,20 @@ import App from "./App";
 
 import { Provider } from "react-redux";
 import { store } from "./app/store";
-import AppLayout from "./Layout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/auth/Login";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+// const { pathname } = useLocation();
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <AppLayout> */}
-      <App />
-      {/* </AppLayout> */}
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
