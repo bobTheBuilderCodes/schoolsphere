@@ -1,9 +1,3 @@
-// const roles = () => {
-//   return <div>roles page</div>;
-// };
-
-// export default roles;
-
 import { SearchOutlined } from "@ant-design/icons";
 import { InputRef, Typography } from "antd";
 import { Button, Input, Space, Table } from "antd";
@@ -61,18 +55,6 @@ const data: DataType[] = [
   },
   {
     key: "5",
-    role: "Jim Red",
-    age: 32,
-    permissions: "London No. 2 Lake Park",
-  },
-  {
-    key: "6",
-    role: "Jim Red",
-    age: 32,
-    permissions: "London No. 2 Lake Park",
-  },
-  {
-    key: "7",
     role: "Jim Red",
     age: 32,
     permissions: "London No. 2 Lake Park",
@@ -199,7 +181,7 @@ const Roles = () => {
       title: "Role",
       dataIndex: "role",
       key: "role",
-      width: "30%",
+      width: "35%",
       ...getColumnSearchProps("role"),
     },
 
@@ -207,15 +189,27 @@ const Roles = () => {
       title: "Permissions",
       dataIndex: "permissions",
       key: "permissions",
+      width: "50%",
       ...getColumnSearchProps("permissions"),
       sorter: (a, b) => a.permissions.length - b.permissions.length,
       sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Action",
+      key: "action",
+      width: "15%",
+      render: (_, record) => (
+        <Space size="middle">
+          <Button type="ghost">Edit</Button>
+          <Button type="ghost">Delete</Button>
+        </Space>
+      ),
     },
   ];
 
   return (
     <div className="">
-      <div className="flex">
+      <div className="flex mb-2">
         <Typography.Title level={3} className="mr-auto">
           Manage Roles
         </Typography.Title>

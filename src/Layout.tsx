@@ -103,7 +103,7 @@ const AppLayout = ({ children, ...props }: IProps) => {
         </Header>
         <Content
           style={{
-            margin: "24px 16px",
+            marginTop: " 2px",
             padding: 24,
             minHeight: 280,
             background: colorBgContainer,
