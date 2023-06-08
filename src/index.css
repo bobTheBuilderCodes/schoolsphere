@@ -5,3 +5,17 @@
 .ant-btn-primary {
   background-color: #1890ff;
 }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.cardStyle {
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+  width: 20vw;
+  height: 15vh;
+  border-radius: 8px;
+  background-color: #fff;
+}

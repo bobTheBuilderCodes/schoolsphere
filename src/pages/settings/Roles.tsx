@@ -1,5 +1,5 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { Form, InputRef, Typography } from "antd";
+import { Form, InputRef, Switch, Typography } from "antd";
 import { Button, Input, Space, Table } from "antd";
 import type { ColumnType, ColumnsType } from "antd/es/table";
 import type { FilterConfirmProps } from "antd/es/table/interface";
@@ -207,8 +207,12 @@ const Roles = () => {
     },
   ];
 
+  const dashboardSwitchHandler = (checked: boolean) => {
+    console.log(`switch to ${checked}`);
+  };
+
   return (
-    <div className="">
+    <div className="p-8">
       <div className="flex mb-2">
         <Typography.Title level={3} className="mr-auto">
           Manage Roles
@@ -217,7 +221,7 @@ const Roles = () => {
           Add Role
         </Button>
         <AppModal
-          title="GREAT WORK."
+          title="ADD NEW ROLE"
           isOpen={openModal}
           onClose={closeModalHandler}
         >
@@ -236,6 +240,74 @@ const Roles = () => {
                 size="large"
               ></Input>
             </Form.Item>
+            <p className="font-medium text-gray-700 text-left w-[100%] mb-4">
+              Granular Level Access
+            </p>
+            <div className="grid grid-cols-3">
+              <Form.Item className=" w-[100%] mr-8">
+                <label htmlFor="home" className="pr-2">
+                  {" "}
+                  Dashboard
+                </label>
+                <Switch defaultChecked onChange={dashboardSwitchHandler} />
+              </Form.Item>
+              <Form.Item className=" w-[100%] mr-8">
+                <label htmlFor="home" className="pr-2">
+                  {" "}
+                  Finance
+                </label>
+                <Switch defaultChecked onChange={dashboardSwitchHandler} />
+              </Form.Item>
+              <Form.Item className=" w-[100%]">
+                <label htmlFor="home" className="pr-2">
+                  {" "}
+                  Non-teaching
+                </label>
+                <Switch defaultChecked onChange={dashboardSwitchHandler} />
+              </Form.Item>
+              <Form.Item className=" w-[100%]">
+                <label htmlFor="home" className="pr-2">
+                  {" "}
+                  Accounting
+                </label>
+                <Switch defaultChecked onChange={dashboardSwitchHandler} />
+              </Form.Item>
+              <Form.Item className=" w-[100%]">
+                <label htmlFor="home" className="pr-2">
+                  {" "}
+                  Parents
+                </label>
+                <Switch defaultChecked onChange={dashboardSwitchHandler} />
+              </Form.Item>
+              <Form.Item className=" w-[100%]">
+                <label htmlFor="home" className="pr-3">
+                  {" "}
+                  Teaching Staff
+                </label>
+                <Switch defaultChecked onChange={dashboardSwitchHandler} />
+              </Form.Item>
+              <Form.Item className=" w-[100%]">
+                <label htmlFor="home" className="pr-3">
+                  {" "}
+                  Access Roles
+                </label>
+                <Switch defaultChecked onChange={dashboardSwitchHandler} />
+              </Form.Item>
+              <Form.Item className=" w-[100%]">
+                <label htmlFor="home" className="pr-3">
+                  {" "}
+                  Students
+                </label>
+                <Switch defaultChecked onChange={dashboardSwitchHandler} />
+              </Form.Item>
+              <Form.Item className=" w-[100%]">
+                <label htmlFor="home" className="pr-3">
+                  {" "}
+                  Customize App
+                </label>
+                <Switch defaultChecked onChange={dashboardSwitchHandler} />
+              </Form.Item>
+            </div>
           </Form>
         </AppModal>
       </div>
