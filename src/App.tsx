@@ -19,6 +19,7 @@ import CustomizeApp from "./pages/settings/CustomizeApp";
 import Payroll from "./pages/finance/Payroll";
 import Students from "./pages/students/Students";
 import SchoolFees from "./pages/finance/SchoolFees";
+import Home from "./Home";
 
 function App() {
   const { pathname } = useLocation();
@@ -29,7 +30,10 @@ function App() {
       ) : (
         <AppLayout>
           <Routes>
-            <Route path="/:userId" element={<AdminDashboard />} />
+            <Route path="/:userId" element={<Home />} />
+          </Routes>
+          <Routes>
+            <Route path="/:userId/dashboard" element={<AdminDashboard />} />
           </Routes>
           <Routes>
             <Route path=":userId/students" element={<Students />} />
