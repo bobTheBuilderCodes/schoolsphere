@@ -59,6 +59,7 @@ function App() {
             <Route path=":userId/customize-app" element={<CustomizeApp />} />
           </Routes>
         </AppLayout>
+        // Changes made
       )}
     </div>
   );
