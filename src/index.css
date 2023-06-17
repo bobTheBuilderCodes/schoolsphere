@@ -19,3 +19,12 @@
   border-radius: 8px;
   background-color: #fff;
 }
+
+.active {
+  background-color: rgb(77, 255, 0);
+}
+
+.pending {
+  background-color: #dd171e;
+  font-weight: bolder;
+}

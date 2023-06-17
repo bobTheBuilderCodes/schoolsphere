@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { ReactNode, Key, useState } from "react";
 
 import {
@@ -37,26 +37,26 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem(<Link to="1/">Home</Link>, "1", <HomeOutlined />),
-  getItem(<Link to="1/dashboard">Dashboard</Link>, "2", <PieChartOutlined />),
+  getItem(<Link to="">Home</Link>, "1", <HomeOutlined />),
+  getItem(<Link to="dashboard">Dashboard</Link>, "2", <PieChartOutlined />),
 
   getItem("Staff", "sub1", <BookOutlined />, [
-    getItem(<Link to="1/teaching">Teaching</Link>, "3"),
-    getItem(<Link to="1/non-teaching">Non Teaching</Link>, "4"),
+    getItem(<Link to="teaching">Teaching</Link>, "3"),
+    getItem(<Link to="non-teaching">Non Teaching</Link>, "4"),
   ]),
-  getItem(<Link to="1/students">Students</Link>, "5", <TeamOutlined />),
+  getItem(<Link to="students">Students</Link>, "5", <TeamOutlined />),
 
-  getItem(<Link to="1/parents">Parents</Link>, "6", <UsergroupAddOutlined />),
+  getItem(<Link to="parents">Parents</Link>, "6", <UsergroupAddOutlined />),
   getItem("Finance & Accounting", "sub2", <MoneyCollectOutlined />, [
-    getItem(<Link to="1/school-fees">School Fees</Link>, "7"),
-    getItem(<Link to="1/payroll">Payroll</Link>, "8"),
+    getItem(<Link to="school-fees">School Fees</Link>, "7"),
+    getItem(<Link to="payroll">Payroll</Link>, "8"),
   ]),
-  getItem(<Link to="1/forum">Chat & Forum</Link>, "9", <MessageOutlined />),
-  getItem(<Link to="1/library">Library</Link>, "10", <LineChartOutlined />),
+  getItem(<Link to="forum">Chat & Forum</Link>, "9", <MessageOutlined />),
+  getItem(<Link to="library">Library</Link>, "10", <LineChartOutlined />),
 
   getItem("Settings", "sub3", <SettingOutlined />, [
-    getItem(<Link to="1/roles">Roles</Link>, "11"),
-    getItem(<Link to="1/customize-app">Customize App</Link>, "12"),
+    getItem(<Link to="/roles">Roles</Link>, "11"),
+    getItem(<Link to="/customize-app">Customize App</Link>, "12"),
   ]),
 ];
 
@@ -110,7 +110,8 @@ const AppLayout = ({ children, ...props }: IProps) => {
             background: colorBgContainer,
           }}
         >
-          {children}
+          {/* {children} */}
+          <Outlet />
         </Content>
       </Layout>
     </Layout>

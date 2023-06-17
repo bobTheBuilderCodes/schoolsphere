@@ -1,14 +1,7 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
-
 import AppLayout from "./Layout";
-
 import Roles from "./pages/settings/Roles";
 import Teaching from "./pages/teachers/Teaching";
 import NonTeaching from "./pages/teachers/NonTeaching";
@@ -20,53 +13,32 @@ import Payroll from "./pages/finance/Payroll";
 import Students from "./pages/students/Students";
 import SchoolFees from "./pages/finance/SchoolFees";
 import Home from "./Home";
+import Mother from "./pages/mother/Mother";
 
 function App() {
-  const { pathname } = useLocation();
   return (
     <div className="bg-gray-100 h-screen">
-      {pathname === "/" ? (
-        <Login />
-      ) : (
-        <AppLayout>
-          <Routes>
-            <Route path="/:userId" element={<Home />} />
-          </Routes>
-          <Routes>
-            <Route path="/:userId/dashboard" element={<AdminDashboard />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId/students" element={<Students />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId/parents" element={<Parents />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId/teaching" element={<Teaching />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId/non-teaching" element={<NonTeaching />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId/library" element={<Library />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId/payroll" element={<Payroll />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId/school-fees" element={<SchoolFees />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId/forum" element={<Forum />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId/roles" element={<Roles />} />
-          </Routes>
-          <Routes>
-            <Route path=":userId/customize-app" element={<CustomizeApp />} />
-          </Routes>
-        </AppLayout>
-      )}
+      <Routes>
+        <Route path="login" element={<Login />} />
+        <Route path=":userId" element={<AppLayout />}>
+          <Route index element={<Home />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="students" element={<Students />} />
+          <Route path="parents" element={<Parents />}>
+            <Route index element={<Mother />} />
+            <Route path="father" element={<h2>This is my father</h2>} />
+            <Route path="guardian" element={<h1>This is my guardian</h1>} />
+          </Route>
+          <Route path="teaching" element={<Teaching />} />
+          <Route path="non-teaching" element={<NonTeaching />} />
+          <Route path="library" element={<Library />} />
+          <Route path="payroll" element={<Payroll />} />
+          <Route path="school-fees" element={<SchoolFees />} />
+          <Route path="forum" element={<Forum />} />
+          <Route path="roles" element={<Roles />} />
+          <Route path="customize-app" element={<CustomizeApp />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
