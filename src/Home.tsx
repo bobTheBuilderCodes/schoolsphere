@@ -13,7 +13,7 @@ const contentStyle: React.CSSProperties = {
 
 const Home = () => (
   <div className=" h-[90vh] flex">
-    <div className="h-[100%] w-5/6">
+    <div className="h-[100%] w-3/4">
       <Carousel autoplay>
         <div>
           <h3 style={contentStyle}>Adverstisement</h3>
@@ -34,7 +34,7 @@ const Home = () => (
         <div className="w-1/3 bg-red-800">News and Updates</div>
       </div>
     </div>
-    <div className="flex p-4 w-1/6 bg-green-400">
+    <div className="flex p-4 w-1/4 bg-green-400">
       <div className="w-2/3 ">Announcement Area</div>
     </div>
   </div>
